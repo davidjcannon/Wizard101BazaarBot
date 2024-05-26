@@ -2,5 +2,24 @@ This bot watches over the shop in Wizard101 and purchases whatever items you wou
 
 Requirements:
 - Python
-- 1440p monitor (At the moment, might add 1080p later)
+- 1440p monitor running wizard101 in fullscreen (Again, if people show interest I could update this to work on any monitor)
 
+How to use:
+- Screenshot the item for sale in the shop that you want the bot to look for
+- Edit line 23 of Bot.py and input the location of the image you screenshot (I recommend moving the image to the folder of the bot)
+- Run Bot.py, it'll refresh the shop based on the coordinates of the buttons on a 1440p screen in full-screen
+- If it finds the item it'll buy as much of it as it can immediately
+
+I mostly made this for myself but if enough people show interest I may update it to be easier to use
+
+Known Issues:
+- Only works on a 1440p monitor because it scans several specific locations on your monitor for the item to greatly increase the speed.
+You could in theory pretty easily modify the program to work on your monitor by changing these pixel values or even making it scan the entire screen
+But this will hurt the speed the program can scan pages of the Bazaar at and possibly cause you to miss out on items it normally would've gotten
+- The more items you search for at once, the slower the bot runs, and therefore the fewer items it can successfully obtain on time.
+I highly recommend searching for as few items at once as possible, like 1-2 items. The fewer items you search for the more likely it'll find it.
+
+WARNING: I take no responsibility for any bans caused by using this.
+I haven't heard of anyone getting banned for using Bazaar bots but using third-party apps in the game is against Wizard101 TOS.
+
+Please be respectful when using this bot and do not buy more than you need.
