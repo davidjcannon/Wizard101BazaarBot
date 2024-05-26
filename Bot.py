@@ -20,7 +20,7 @@ def refresh():
     click(640,360)
     time.sleep(2)
 
-items = ['agave.jpg', 'agaveleaves.jpg']
+items = ['ghostfire.jpg']
 page = 1
 time.sleep(2)
 refresh()
@@ -33,8 +33,11 @@ while keyboard.is_pressed('q') == False:
     for x in items:
         
         # Tells script whether to skip the first reagent after the first page
-        skipAFP = 1
-        p1Only = 1
+        # Stands for 'Skip After First Page'
+        # Allows you to setup reagents that will be offloaded after the first page
+        skipAFP = 0
+        # Stands for 'Page 1 Only', won't allow bot to progress to next page
+        p1Only = 0
         skip = 0
         if skipAFP == 1:
             if page > 1 and i <= 1:
@@ -47,7 +50,7 @@ while keyboard.is_pressed('q') == False:
         i += 1
     if buy >= 1:
         # Clicks on item in shop
-        pos = pyautogui.locateOnScreen(items[buy-1], confidence=(0.95))
+        pos = pyautogui.locateOnScreen(items[buy-1], region=(1150,500,280,530), grayscale=True, confidence=0.95)
         click(pos[0], pos[1])
         time.sleep(0.05)
         # Clicks on Buy More
@@ -67,6 +70,7 @@ while keyboard.is_pressed('q') == False:
         time.sleep(0.05)
         skip = 1
     print("Debug: " + str(pyautogui.pixel(1717, 1071)[0]))
+    # Checks if next page is available based off the color of the button
     if pyautogui.pixel(1717, 1071)[0] == 205 and skip == 0 and p1Only == 0:
         print("Next page")
         click(1700,1120)
